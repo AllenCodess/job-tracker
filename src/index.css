@@ -3,3 +3,23 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Navbar  */
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  border: 1px black solid;
+  padding: 5px 2rem;
+}
+
+.navbar-items-container {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-item {
+  padding: 10px 15px;
+  border: 1px red solid;
+}

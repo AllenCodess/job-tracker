@@ -5,7 +5,6 @@ function App() {
   return (
     <>
       <Navbar />
-      <p> Test Job tracker</p>
     </>
   );
 }
