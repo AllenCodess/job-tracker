@@ -8,9 +8,15 @@ const Navbar = () => {
           <h1>Job Tracker</h1>
         </div>
         <div className="navbar-items-container">
-          <li className="navbar-item">Home</li>
-          <li className="navbar-item">Login</li>
-          <li className="navbar-item">Create New Job</li>
+          <li className="navbar-item">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="navbar-item">
+            <Link to="/login">Login</Link>
+          </li>
+          <li className="navbar-item">
+            <Link to="/jobs">Jobs</Link>
+          </li>
         </div>
       </div>
     </>
