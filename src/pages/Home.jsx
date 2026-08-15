@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTable } from "@fortawesome/free-solid-svg-icons";
 
 const HomePage = () => {
   let navigate = useNavigate();
@@ -27,6 +29,39 @@ const HomePage = () => {
               src="./../src/assets/jobtracker-hero.png"
               alt="preview image of the site"
             />
+          </div>
+        </div>
+        <div className="second-section">
+          <h2>Everything you need to stay organized</h2>
+          <div className="benefits-container">
+            <div className="benefit-item">
+              <FontAwesomeIcon icon={faTable} className="benefit-icon blue" />
+              <div className="benefit-item-text">
+                <h4 className="benefit-item-header"> Track Applications</h4>
+                <p className="benefit-description">Keep all your job applications in one place.</p>
+              </div>
+            </div>
+            <div className="benefit-item">
+              <FontAwesomeIcon icon={faTable} className="benefit-icon" />
+              <div className="benefit-item-text">
+                <h4 className="benefit-item-header"> Track Applications</h4>
+                <p className="benefit-description">Keep all your job applications in one place.</p>
+              </div>
+            </div>
+            <div className="benefit-item">
+              <FontAwesomeIcon icon={faTable} className="benefit-icon" />
+              <div className="benefit-item-text">
+                <h4 className="benefit-item-header"> Track Applications</h4>
+                <p className="benefit-description">Keep all your job applications in one place.</p>
+              </div>
+            </div>
+            <div className="benefit-item">
+              <FontAwesomeIcon icon={faTable} className="benefit-icon" />
+              <div className="benefit-item-text">
+                <h4 className="benefit-item-header"> Track Applications</h4>
+                <p className="benefit-description">Keep all your job applications in one place.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
