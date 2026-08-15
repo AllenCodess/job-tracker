@@ -1,7 +1,12 @@
 const HomePage = () => {
   return (
     <>
-      <h1>This is the Home Page</h1>
+      <div className="container">
+        <div className="hero-section-container">
+          <div className="hero-left"></div>
+          <div className="hero-right"></div>
+        </div>
+      </div>
     </>
   );
 };

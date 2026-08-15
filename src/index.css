@@ -4,12 +4,17 @@
   box-sizing: border-box;
 }
 
+.container {
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 1.4rem 0;
+}
+
 /* Navbar  */
 
 .navbar-container {
   display: flex;
   justify-content: space-between;
-
   align-items: center;
   padding: 5px 2rem;
   font-family: "Stack Sans Headline", sans-serif;
@@ -23,6 +28,11 @@
 
 .navbar-item {
   padding: 10px 15px;
+}
+
+.link-text {
+  text-decoration: none;
+  color: black;
 }
 
 /* Hamburger button hidden on desktop */
