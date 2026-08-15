@@ -180,4 +180,10 @@
   .hero-left {
     margin-bottom: 2rem;
   }
+
+  .benefits-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    row-gap: 2rem;
+  }
 }
