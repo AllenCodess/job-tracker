@@ -45,6 +45,51 @@
   padding: 10px 20px;
 }
 
+/* HomePage Hero section */
+
+.hero-section-container {
+  max-width: 1400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.hero-left {
+  flex: 1;
+  font-family: "Stack Sans Headline", sans-serif;
+}
+
+.hero-text-header {
+  margin-bottom: 1rem;
+  width: 90%;
+  font-size: 3rem;
+}
+
+.hero-text-description {
+  width: 90%;
+  line-height: 1.7rem;
+  color: rgb(51, 51, 51);
+}
+
+.hero-right {
+  flex: 1;
+}
+
+.hero-img {
+  width: 100%;
+}
+
+.hero-btn {
+  padding: 12px 12px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(30, 71, 255);
+  color: white;
+  font-family: "Stack Sans Headline", sans-serif;
+  margin-top: 2rem;
+}
+
 /* Media Query 768px */
 
 @media (max-width: 768px) {
