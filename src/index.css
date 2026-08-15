@@ -103,7 +103,7 @@
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 60px;
+    top: 100px;
     left: 0;
     width: 100%;
     background: white;
@@ -118,5 +118,14 @@
     border-bottom: 1px black solid;
     border-right: none;
     text-align: center;
+  }
+
+  .hero-section-container {
+    max-width: 80%;
+    flex-direction: column;
+  }
+
+  .hero-left {
+    margin-bottom: 2rem;
   }
 }

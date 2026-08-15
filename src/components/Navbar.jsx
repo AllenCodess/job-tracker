@@ -3,6 +3,7 @@ import { Link } from "react-router";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <div className="container">

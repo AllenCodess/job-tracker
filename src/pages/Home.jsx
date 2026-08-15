@@ -1,4 +1,11 @@
+import { useNavigate } from "react-router";
+
 const HomePage = () => {
+  let navigate = useNavigate();
+  const handleButtonClick = () => {
+    navigate("/login");
+  };
+
   return (
     <>
       <div className="container">
@@ -10,7 +17,9 @@ const HomePage = () => {
               Job Tracker helps users organize job applications, monitor prgress and stay consistent
               on the path to get hired.
             </p>
-            <button className="hero-btn">Login to get started.</button>
+            <button className="hero-btn" onClick={handleButtonClick}>
+              Login to get started.
+            </button>
           </div>
           <div className="hero-right">
             <img
