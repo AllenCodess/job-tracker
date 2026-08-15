@@ -10,6 +10,7 @@
   display: flex;
   justify-content: space-between;
   border: 1px black solid;
+  align-items: center;
   padding: 5px 2rem;
   font-family: "Stack Sans Headline", sans-serif;
 }
@@ -22,5 +23,45 @@
 
 .navbar-item {
   padding: 10px 15px;
-  border: 1px red solid;
+}
+
+/* Hamburger button hidden on desktop */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+/* Media Query 768px */
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  /* Hide menu by default */
+
+  .navbar-items-container {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: white;
+  }
+
+  .navbar-items-container.active {
+    display: flex;
+  }
+
+  .navbar-item {
+    width: 100%;
+    border-bottom: 1px black solid;
+    border-right: none;
+    text-align: center;
+  }
 }
