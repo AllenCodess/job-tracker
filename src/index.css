@@ -9,7 +9,7 @@
 .navbar-container {
   display: flex;
   justify-content: space-between;
-  border: 1px black solid;
+
   align-items: center;
   padding: 5px 2rem;
   font-family: "Stack Sans Headline", sans-serif;
