@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTable } from "@fortawesome/free-solid-svg-icons";
+import { faTable, faChartLine, faCalendar, faStickyNote } from "@fortawesome/free-solid-svg-icons";
 
 const HomePage = () => {
   let navigate = useNavigate();
@@ -42,24 +42,28 @@ const HomePage = () => {
               </div>
             </div>
             <div className="benefit-item">
-              <FontAwesomeIcon icon={faTable} className="benefit-icon" />
+              <FontAwesomeIcon icon={faChartLine} className="benefit-icon purple" />
               <div className="benefit-item-text">
-                <h4 className="benefit-item-header"> Track Applications</h4>
-                <p className="benefit-description">Keep all your job applications in one place.</p>
+                <h4 className="benefit-item-header"> Monitor Progress</h4>
+                <p className="benefit-description">Visualize your progress and stay motivated.</p>
               </div>
             </div>
             <div className="benefit-item">
-              <FontAwesomeIcon icon={faTable} className="benefit-icon" />
+              <FontAwesomeIcon icon={faCalendar} className="benefit-icon green" />
               <div className="benefit-item-text">
-                <h4 className="benefit-item-header"> Track Applications</h4>
-                <p className="benefit-description">Keep all your job applications in one place.</p>
+                <h4 className="benefit-item-header">Stay on Top</h4>
+                <p className="benefit-description">
+                  Never miss a follow-up with reminders and calendar.
+                </p>
               </div>
             </div>
             <div className="benefit-item">
-              <FontAwesomeIcon icon={faTable} className="benefit-icon" />
+              <FontAwesomeIcon icon={faStickyNote} className="benefit-icon yellow" />
               <div className="benefit-item-text">
-                <h4 className="benefit-item-header"> Track Applications</h4>
-                <p className="benefit-description">Keep all your job applications in one place.</p>
+                <h4 className="benefit-item-header">Add Notes</h4>
+                <p className="benefit-description">
+                  Save Notes, interview tips, and important links.
+                </p>
               </div>
             </div>
           </div>
