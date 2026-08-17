@@ -14,6 +14,8 @@ export const UserProvider = ({ children }) => {
 
   const logout = () => {
     setUser(null);
+    setUsername("");
+    setPassword("");
   };
 
   return (
