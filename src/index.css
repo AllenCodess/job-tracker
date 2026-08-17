@@ -142,6 +142,48 @@
   color: rgb(51, 51, 51);
 }
 
+/* Login Page */
+
+.login-form {
+  width: 20%;
+  margin: 0 auto;
+  margin-top: 6rem;
+  font-family: "Stack Sans Headline", sans-serif;
+}
+
+.login-description {
+  color: rgb(85, 85, 85);
+  font-size: 13px;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.login-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.email-input {
+  margin-bottom: 2rem;
+  margin-top: 6px;
+  padding: 10px 10px;
+}
+
+.password-input {
+  margin-bottom: 2rem;
+  margin-top: 6px;
+  padding: 10px 10px;
+}
+
+.login-btn {
+  padding: 10px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+
 /* Media Query 768px */
 
 @media (max-width: 768px) {
