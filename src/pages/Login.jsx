@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
+
 const LoginPage = () => {
+  const { username, setUsername, password, setPassword } = useContext(UserContext);
   return (
     <>
       <div className="container">
@@ -11,9 +15,21 @@ const LoginPage = () => {
           </div>
           <form className="login-inputs">
             <label>Email address</label>
-            <input type="text" placeholder="Enter Email" className="email-input" />
+            <input
+              type="text"
+              placeholder="Enter Email"
+              className="email-input"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
             <label>Password</label>
-            <input type="text" placeholder="Enter Password" className="password-input" />
+            <input
+              type="text"
+              placeholder="Enter Password"
+              className="password-input"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
             <button className="login-btn">Login</button>
           </form>
         </div>
