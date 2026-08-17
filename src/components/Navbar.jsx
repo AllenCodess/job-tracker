@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router";
+import { UserContext } from "../context/UserContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { user, logout } = useContext(UserContext);
 
   return (
     <>
@@ -21,14 +23,27 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="navbar-item">
-              <Link to="/login" className="link-text" onClick={() => setIsOpen(false)}>
-                Login
-              </Link>
-            </li>
-            <li className="navbar-item">
               <Link to="/jobs" className="link-text" onClick={() => setIsOpen(false)}>
                 Jobs
               </Link>
+            </li>
+            {/* if user is true display logout else display login */}
+            <li className="navbar-item">
+              {user ? (
+                <button
+                  className="logout-btn"
+                  onClick={() => {
+                    logout();
+                    setIsOpen(false);
+                  }}
+                >
+                  Logout {user}
+                </button>
+              ) : (
+                <Link to="/login" className="link-text" onClick={() => setIsOpen(false)}>
+                  Login
+                </Link>
+              )}
             </li>
           </div>
         </div>

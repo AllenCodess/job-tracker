@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { UserContext } from "../context/UserContext";
+import { UserContext, UserProvider } from "../context/UserContext";
 
 const LoginPage = () => {
-  const { username, setUsername, password, setPassword } = useContext(UserContext);
+  const { username, setUsername, password, setPassword, login } = useContext(UserContext);
   return (
     <>
       <div className="container">
@@ -30,7 +30,9 @@ const LoginPage = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button className="login-btn">Login</button>
+            <button type="button" className="login-btn" onClick={login}>
+              Login
+            </button>
           </form>
         </div>
       </div>

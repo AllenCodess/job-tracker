@@ -40,6 +40,7 @@
   list-style-type: none;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .navbar-item {
@@ -48,6 +49,16 @@
 
 .link-text {
   text-decoration: none;
+  color: black;
+}
+
+.logout-btn {
+  background-color: rgb(190, 190, 190);
+  padding: 10px 15px;
+  font-family: "Stack Sans Headline", sans-serif;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
   color: black;
 }
 
