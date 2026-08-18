@@ -195,6 +195,27 @@
   border-radius: 8px;
 }
 
+/* Jobs Page */
+
+.jobs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Stack Sans Headline", sans-serif;
+}
+
+.job-header-button {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+
+.add-job-icon {
+  margin-right: 0.5rem;
+}
+
 /* Media Query 768px */
 
 @media (max-width: 768px) {
