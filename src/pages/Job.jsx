@@ -32,7 +32,7 @@ const JobPage = () => {
               <div className="right-side">
                 <p className="job-position-details">{job.status}</p>
                 <p className="job-position-details">{job.appliedOn}</p>
-                <button>Details</button>
+                <button className="job-details-btn">Details</button>
               </div>
             </div>
           ))}
