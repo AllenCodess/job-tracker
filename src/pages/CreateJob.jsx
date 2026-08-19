@@ -8,6 +8,7 @@ const CreateJob = () => {
   const [position, setPosition] = useState("");
   const [location, setLocation] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
+  const [notes, setNotes] = useState("");
 
   return (
     <>
@@ -64,6 +65,11 @@ const CreateJob = () => {
                 className="details-label"
               />
             </div>
+            <label className="create-job-label">Notes</label>
+            <textarea placeholder="Additional Notes here" className="create-job-notes"></textarea>
+            <button className="create-job-btn" type="submit">
+              Submit
+            </button>
           </div>
         </form>
       </div>
