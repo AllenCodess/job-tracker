@@ -1,8 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { jobs } from "../data/data";
+import { useNavigate } from "react-router";
 
 const JobPage = () => {
+  let navigate = useNavigate();
+  const addJobBtn = () => {
+    navigate("/createjob");
+  };
   return (
     <>
       <div className="jobs-header container">
@@ -11,22 +16,22 @@ const JobPage = () => {
           <p>Track and manage all your job applications in one place.</p>
         </div>
         <div className="job-header-btn">
-          <button className="job-header-button">
+          <button className="job-header-button" onClick={addJobBtn}>
             <FontAwesomeIcon icon={faPlus} className="add-job-icon" />
             Add Job
           </button>
         </div>
       </div>
       <div className="job-section container">
-        <ul>
+        <div>
           {jobs.map((job) => (
-            <div className="single-job">
+            <div className="single-job" key={job.id}>
               <div className="left-side">
                 <p className="job-position-title">{job.position}</p>
                 <div className="job-position-details-container">
-                  <li className="job-position-details">{job.company}</li>
-                  <li className="job-position-details">{job.location}</li>
-                  <li className="job-position-details">{job.workType}</li>
+                  <p className="job-position-details">{job.company}</p>
+                  <p className="job-position-details">{job.location}</p>
+                  <p className="job-position-details">{job.workType}</p>
                 </div>
               </div>
               <div className="right-side">
@@ -36,7 +41,7 @@ const JobPage = () => {
               </div>
             </div>
           ))}
-        </ul>
+        </div>
       </div>
     </>
   );

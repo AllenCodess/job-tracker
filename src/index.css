@@ -265,6 +265,39 @@
   color: white;
 }
 
+/* Create Job Page */
+
+.create-job-details {
+  border: black solid 2px;
+  max-width: 1200px;
+  width: 90%;
+  font-family: "Stack Sans Headline", sans-serif;
+}
+
+.create-job-header {
+  margin-bottom: 3rem;
+}
+
+.create-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-job-label {
+  font-size: 14px;
+}
+
+.details-label {
+  width: 20%;
+  margin: 0.5rem 0;
+  padding: 5px;
+}
+
+.dropdown {
+  width: 20%;
+  padding: 5px;
+}
+
 /* Media Query 768px */
 
 @media (max-width: 768px) {
