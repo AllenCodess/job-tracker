@@ -32,7 +32,10 @@ const CreateJob = () => {
               <option value="Interview">Interview</option>
             </select>
           </div>
-          <div className="create-right"></div>
+          <div className="create-right">
+            <label className="create-job-label">Location</label>
+            <input className="details-label" type="text" placeholder="e.g New York" />
+          </div>
         </form>
       </div>
     </>

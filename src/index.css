@@ -278,7 +278,17 @@
   margin-bottom: 3rem;
 }
 
+.create-new-job {
+  display: flex;
+  justify-content: space-around;
+}
+
 .create-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-right {
   display: flex;
   flex-direction: column;
 }
@@ -288,13 +298,13 @@
 }
 
 .details-label {
-  width: 20%;
+  width: 100%;
   margin: 0.5rem 0;
   padding: 5px;
 }
 
 .dropdown {
-  width: 20%;
+  width: 100%;
   padding: 5px;
 }
 
