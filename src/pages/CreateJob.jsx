@@ -7,8 +7,13 @@ const CreateJob = () => {
   const [company, setCompany] = useState("");
   const [position, setPosition] = useState("");
   const [location, setLocation] = useState("");
-  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedDate, setSelectedDate] = useState(null);
   const [notes, setNotes] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log({ company, position, location, selectedDate, selected, notes });
+  };
 
   return (
     <>
@@ -17,7 +22,7 @@ const CreateJob = () => {
           <h1>Add a New Job</h1>
           <p>Enter the details of the job application.</p>
         </div>
-        <form className="create-new-job">
+        <form className="create-new-job" onSubmit={handleSubmit}>
           <div className="create-left">
             <label className="create-job-label">Company Name</label>
             <input
@@ -66,7 +71,12 @@ const CreateJob = () => {
               />
             </div>
             <label className="create-job-label">Notes</label>
-            <textarea placeholder="Additional Notes here" className="create-job-notes"></textarea>
+            <textarea
+              placeholder="Additional Notes here"
+              className="create-job-notes"
+              onChange={(e) => setNotes(e.target.value)}
+              value={notes}
+            ></textarea>
             <button className="create-job-btn" type="submit">
               Submit
             </button>
