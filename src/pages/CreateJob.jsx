@@ -1,10 +1,14 @@
 import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const CreateJob = () => {
   const [selected, setSelected] = useState("");
   const [company, setCompany] = useState("");
   const [position, setPosition] = useState("");
   const [location, setLocation] = useState("");
+  const [selectedDate, setSelectedDate] = useState("");
+
   return (
     <>
       <div className="create-job-details container">
@@ -52,6 +56,14 @@ const CreateJob = () => {
               value={location}
               onChange={(e) => setLocation(e.target.value)}
             />
+            <div className="calendar">
+              <p className="create-job-label">Select a date:</p>
+              <DatePicker
+                selected={selectedDate}
+                onChange={(date) => setSelectedDate(date)}
+                className="details-label"
+              />
+            </div>
           </div>
         </form>
       </div>
