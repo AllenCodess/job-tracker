@@ -13,6 +13,12 @@ const CreateJob = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({ company, position, location, selectedDate, selected, notes });
+    setSelected("");
+    setCompany("");
+    setPosition("");
+    setLocation("");
+    setSelectedDate(null);
+    setNotes("");
   };
 
   return (
