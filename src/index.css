@@ -413,4 +413,12 @@
     width: 100%;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }
+
+  .job-position-details-container {
+    column-gap: 3rem;
+  }
+
+  .right-side {
+    column-gap: 3rem;
+  }
 }
