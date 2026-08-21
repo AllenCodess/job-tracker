@@ -18,6 +18,15 @@ export const findUser = async (req, res) => {
   }
 };
 
+export const updateUser = async (req, res) => {
+  try {
+    const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.status(201).json({ status: "success", data: user });
+  } catch (error) {
+    res.status(400).json({ status: "fail", message: error.message });
+  }
+};
+
 export const createUser = async (req, res) => {
   try {
     const { name, email, password, passwordConfirm } = req.body;
