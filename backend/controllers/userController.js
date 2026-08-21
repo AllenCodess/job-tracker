@@ -9,6 +9,15 @@ export const findUsers = async (req, res) => {
   }
 };
 
+export const findUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    res.status(200).json({ status: "success", data: user });
+  } catch (error) {
+    res.status(400).json({ status: "failed", message: error.message });
+  }
+};
+
 export const createUser = async (req, res) => {
   try {
     const { name, email, password, passwordConfirm } = req.body;
