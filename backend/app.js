@@ -1,11 +1,11 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import userRoute from "./routes/userRoute.js";
 
 dotenv.config({ path: ".env" });
 
 const app = express();
-
 const DB = process.env.DATABASE;
 
 const connectDB = async () => {
@@ -19,12 +19,7 @@ const connectDB = async () => {
 
 connectDB();
 
-app.get("/", (req, res) => {
-  res.status(200).json({
-    status: "success",
-    message: "Hello from express",
-  });
-});
+app.use("/api/v1/users", userRoute);
 
 app.listen(3000, () => {
   console.log("app is running");
