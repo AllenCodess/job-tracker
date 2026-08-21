@@ -1,5 +1,14 @@
 import User from "../models/userModel.js";
 
+export const findUsers = async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).json({ status: "success", results: users.length, data: users });
+  } catch (error) {
+    res.status(400).json({ status: "failed", message: error.message });
+  }
+};
+
 export const createUser = async (req, res) => {
   try {
     const { name, email, password, passwordConfirm } = req.body;

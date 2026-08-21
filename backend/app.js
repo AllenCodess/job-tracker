@@ -10,6 +10,7 @@ const DB = process.env.DATABASE;
 
 //middleware
 app.use(express.json());
+app.set("json spaces", 2);
 
 const connectDB = async () => {
   try {
