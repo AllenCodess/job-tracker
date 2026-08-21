@@ -8,6 +8,9 @@ dotenv.config({ path: ".env" });
 const app = express();
 const DB = process.env.DATABASE;
 
+//middleware
+app.use(express.json());
+
 const connectDB = async () => {
   try {
     await mongoose.connect(DB);
