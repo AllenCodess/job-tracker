@@ -29,29 +29,33 @@ export const createUser = async (req, res) => {
 };
 
 export const authUser = async (req, res) => {
-  const { email, password } = req.body;
+  try {
+    const { email, password } = req.body;
 
-  if (!email || !password) {
-    return res.status(400).json({ status: "fail", message: "Provide a email or password" });
-  }
-  const user = await User.findOne({ email }).select("+password");
+    if (!email || !password) {
+      return res.status(400).json({ status: "fail", message: "Provide a email or password" });
+    }
+    const user = await User.findOne({ email }).select("+password");
+    const token = signToken(user._id);
 
-  if (user && (await user.matchPassword(password))) {
+    if (!user || !(await user.matchPassword(password))) {
+      return res.status(401).json({ status: "fail", message: "Invalid email or password" });
+    }
     res.json({
       _id: user._id,
       name: user.name,
       email: user.email,
       token,
     });
-  } else {
-    res.status(401);
-    throw new Error(" Invalid email or password");
+  } catch (error) {
+    res.status(401).json({ status: "fail", message: error.message });
   }
 };
 
 export const findUsers = async (req, res) => {
   try {
     const users = await User.find();
+
     res.status(200).json({ status: "success", results: users.length, data: users });
   } catch (error) {
     res.status(400).json({ status: "failed", message: error.message });
