@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -17,6 +18,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "A user must have a passoword."],
     minlength: 8,
+    select: false,
   },
   passwordConfirm: {
     type: String,
@@ -28,6 +30,13 @@ const userSchema = new mongoose.Schema({
       message: "Password needs to match",
     },
   },
+});
+
+userSchema.pre("save", async function () {
+  if (!this.isModified("password")) return;
+
+  this.password = await bcrypt.hash(this.password, 12);
+  this.passwordConfirm = undefined;
 });
 
 const User = mongoose.model("User", userSchema);
