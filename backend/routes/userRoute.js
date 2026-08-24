@@ -6,6 +6,7 @@ import {
   updateUser,
   deleteUser,
   authUser,
+  logoutUser,
 } from "../controllers/userController.js";
 import { protect } from "../controllers/authController.js";
 
@@ -13,6 +14,7 @@ const router = express.Router();
 
 router.post("/register", createUser);
 router.post("/login", authUser);
+router.post("/logout", logoutUser);
 // protected routes
 router.get("/", protect, findUsers);
 router.get("/:id", protect, findUser);

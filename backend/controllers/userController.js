@@ -19,6 +19,13 @@ export const createUser = async (req, res) => {
     });
 
     const token = signToken(newUser._id);
+
+    res.cookie("token", token, {
+      httpOnly: true, // Not accessible via Javascript
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days in milliseconds
+    });
     res.status(201).json({ status: "success", data: { user: newUser }, token });
   } catch (error) {
     res.status(400).json({
@@ -43,6 +50,13 @@ export const authUser = async (req, res) => {
 
     const token = signToken(user._id);
 
+    res.cookie("token", token, {
+      httpOnly: true, // Not accessible via Javascript
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days in milliseconds
+    });
+
     res.json({
       _id: user._id,
       name: user.name,
@@ -52,6 +66,17 @@ export const authUser = async (req, res) => {
   } catch (error) {
     res.status(401).json({ status: "fail", message: error.message });
   }
+};
+
+export const logoutUser = async (req, res) => {
+  res.cookie("token", "", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+    maxAge: 0, // Expires immediately
+  });
+
+  res.json({ status: "success", message: "Logged out" });
 };
 
 export const findUsers = async (req, res) => {

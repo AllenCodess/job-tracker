@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import userRoute from "./routes/userRoute.js";
+import cookieParser from "cookie-parser";
 
 dotenv.config({ path: ".env" });
 
@@ -12,6 +13,7 @@ const DB = process.env.DATABASE;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set("json spaces", 2);
+app.use(cookieParser());
 
 const connectDB = async () => {
   try {
