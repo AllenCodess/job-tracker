@@ -26,7 +26,7 @@ export const createUser = async (req, res) => {
       sameSite: "strict",
       maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days in milliseconds
     });
-    res.status(201).json({ status: "success", data: { user: newUser }, token });
+    res.status(201).json({ status: "success", data: { user: newUser } });
   } catch (error) {
     res.status(400).json({
       status: "failed",
@@ -61,7 +61,6 @@ export const authUser = async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
-      token,
     });
   } catch (error) {
     res.status(401).json({ status: "fail", message: error.message });
@@ -69,7 +68,7 @@ export const authUser = async (req, res) => {
 };
 
 export const logoutUser = async (req, res) => {
-  res.cookie("token", "", {
+  res.clearCookie("token", "", {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "strict",
