@@ -39,7 +39,13 @@ export const findJobs = async (req, res) => {
 export const findMyJobs = async (req, res) => {
   try {
     const user = await User.findById(req.user.id).populate("jobs");
-    res.json(user.jobs);
+
+    res.json({
+      status: "success",
+      user: req.user.name,
+      results: user.jobs.length,
+      data: user.jobs,
+    });
   } catch (error) {
     res.json(error.message);
   }
@@ -47,11 +53,17 @@ export const findMyJobs = async (req, res) => {
 
 export const findMyJob = async (req, res) => {
   try {
-    const user = await User.findById(req.user.id);
-    const job = await Job.findById(req.params.id);
+    const job = await Job.findOne({ _id: req.params.id, user: req.user.id }).populate(
+      "user",
+      "name",
+    );
+
+    if (!job) {
+      return res.status(403).json({ status: "fail", message: "Not authorized" });
+    }
+
     res.status(200).json({
       status: "success",
-      user: user,
       data: job,
     });
   } catch (error) {

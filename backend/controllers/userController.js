@@ -1,8 +1,8 @@
 import User from "../models/userModel.js";
 import jwt from "jsonwebtoken";
 
-const signToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
+const signToken = (id, name) => {
+  return jwt.sign({ id, name }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN,
   });
 };
@@ -18,7 +18,7 @@ export const createUser = async (req, res) => {
       passwordConfirm,
     });
 
-    const token = signToken(newUser._id);
+    const token = signToken(newUser._id, newUser.name);
 
     res.cookie("token", token, {
       httpOnly: true, // Not accessible via Javascript
@@ -48,7 +48,7 @@ export const authUser = async (req, res) => {
       return res.status(401).json({ status: "fail", message: "Invalid email or password" });
     }
 
-    const token = signToken(user._id);
+    const token = signToken(user._id, user.name);
 
     res.cookie("token", token, {
       httpOnly: true, // Not accessible via Javascript
