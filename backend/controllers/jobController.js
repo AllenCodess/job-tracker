@@ -44,3 +44,17 @@ export const findMyJobs = async (req, res) => {
     res.json(error.message);
   }
 };
+
+export const findMyJob = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id);
+    const job = await Job.findById(req.params.id);
+    res.status(200).json({
+      status: "success",
+      user: user,
+      data: job,
+    });
+  } catch (error) {
+    res.status(400).json({ status: "failed", message: error.message });
+  }
+};
