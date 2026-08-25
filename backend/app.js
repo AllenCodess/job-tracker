@@ -27,6 +27,7 @@ const connectDB = async () => {
 connectDB();
 
 app.use("/api/v1/users", userRoute);
+app.use("/api/v1/jobs", jobRoute);
 
 app.listen(3000, () => {
   console.log("app is running");
