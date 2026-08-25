@@ -25,6 +25,11 @@ const jobSchema = new mongoose.Schema({
   notes: {
     type: String,
   },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
 });
 
 const Job = mongoose.model("Job", jobSchema);

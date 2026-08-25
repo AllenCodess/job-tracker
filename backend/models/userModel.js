@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
+import Job from "./jobModel.js";
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -30,6 +31,7 @@ const userSchema = new mongoose.Schema({
       message: "Password needs to match",
     },
   },
+  jobs: [{ type: mongoose.Schema.Types.ObjectId, ref: Job }],
 });
 
 userSchema.pre("save", async function () {
