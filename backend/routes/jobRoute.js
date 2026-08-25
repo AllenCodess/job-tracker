@@ -2,7 +2,7 @@ import express from "express";
 
 import { createJob } from "../controllers/jobController.js";
 
-const router = express.router();
+const router = express.Router();
 
 router.post("/createjob", createJob);
 
