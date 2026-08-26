@@ -6,14 +6,19 @@ import Signup from "./pages/Signup";
 import JobPage from "./pages/Job";
 import NotFound from "./pages/NotFound";
 import CreateJob from "./pages/CreateJob";
+import Dashboard from "./pages/Dashboard";
 import "./index.css";
 
+import { useContext } from "react";
+import { UserContext } from "./context/UserContext";
+
 function App() {
+  const { user } = useContext(UserContext);
   return (
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={user ? <Dashboard /> : <HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/jobs" element={<JobPage />} />

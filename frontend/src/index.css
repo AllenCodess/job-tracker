@@ -175,14 +175,20 @@
   flex-direction: column;
 }
 
+.name-input {
+  margin-bottom: 1rem;
+  margin-top: 6px;
+  padding: 10px 10px;
+}
+
 .email-input {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   margin-top: 6px;
   padding: 10px 10px;
 }
 
 .password-input {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   margin-top: 6px;
   padding: 10px 10px;
 }

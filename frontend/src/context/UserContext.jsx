@@ -35,7 +35,8 @@ export const UserProvider = ({ children }) => {
         credentials: "include", // sends cookie
       });
       const data = await res.json();
-      setUser(data);
+      console.log(data);
+      setUser(data.data.user);
     } catch (error) {
       console.error(error.message);
     }

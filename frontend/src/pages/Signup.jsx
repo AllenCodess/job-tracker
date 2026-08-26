@@ -1,9 +1,19 @@
 import { useContext } from "react";
 import { Link } from "react-router";
-import { UserContext, UserProvider } from "../context/UserContext";
+import { UserContext } from "../context/UserContext";
 
 const Signup = () => {
-  const { email, setEmail, password, setPassword, login } = useContext(UserContext);
+  const {
+    name,
+    setName,
+    email,
+    setEmail,
+    password,
+    setPassword,
+    passwordConfirm,
+    setPasswordConfirm,
+    signup,
+  } = useContext(UserContext);
   return (
     <>
       <div className="container">
@@ -14,7 +24,13 @@ const Signup = () => {
           </div>
           <form className="login-inputs">
             <label>Name</label>
-            <input type="text" placeholder="Enter Name" />
+            <input
+              type="text"
+              placeholder="Enter Name"
+              className="name-input"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
             <label>Email address</label>
             <input
               type="text"
@@ -31,13 +47,21 @@ const Signup = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="button" className="login-btn" onClick={login}>
-              Login
+            <label>Confirm Password</label>
+            <input
+              type="text"
+              placeholder="Confirm Password"
+              className="password-input"
+              value={passwordConfirm}
+              onChange={(e) => setPasswordConfirm(e.target.value)}
+            />
+            <button type="button" className="login-btn" onClick={signup}>
+              Create Account
             </button>
             <p className="create-account-text">
-              Dont have an account?
-              <Link className="signuplink" to="/signup">
-                Create One
+              Already have an account?
+              <Link className="signuplink" to="/login">
+                Login
               </Link>
             </p>
           </form>
