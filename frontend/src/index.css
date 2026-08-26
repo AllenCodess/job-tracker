@@ -353,6 +353,27 @@
   font-size: 15px;
 }
 
+/* Job Details Page */
+
+.jd-container {
+  display: flex;
+}
+.jd-left-container {
+  border: 1px solid black;
+  flex: 2;
+}
+
+.jd-right-container {
+  border: 1px solid red;
+  flex: 1;
+}
+
+.app-overview-jd {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
 /* Media Query 768px */
 
 @media (max-width: 768px) {
