@@ -70,3 +70,12 @@ export const findMyJob = async (req, res) => {
     res.status(400).json({ status: "failed", message: error.message });
   }
 };
+
+export const updateJob = async (req, res) => {
+  try {
+    const job = await Job.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.status(201).json({ status: "success", data: job });
+  } catch (error) {
+    res.status(400).json({ status: "fail", message: error.message });
+  }
+};
