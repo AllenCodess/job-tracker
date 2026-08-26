@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { jobs } from "../data/data";
 import { useNavigate } from "react-router";
+import { Link } from "react-router";
 
 const JobPage = () => {
   let navigate = useNavigate();
@@ -37,7 +38,11 @@ const JobPage = () => {
               <div className="right-side">
                 <p className="job-position-details">{job.status}</p>
                 <p className="job-position-details">{job.appliedOn}</p>
-                <button className="job-details-btn">Details</button>
+                <button className="job-details-btn">
+                  <Link className="job-details-btn-link" to={"/job-details/:id"}>
+                    Details
+                  </Link>
+                </button>
               </div>
             </div>
           ))}

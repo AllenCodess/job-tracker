@@ -7,6 +7,7 @@ import JobPage from "./pages/Job";
 import NotFound from "./pages/NotFound";
 import CreateJob from "./pages/CreateJob";
 import Dashboard from "./pages/Dashboard";
+import JobDetailsPage from "./pages/JobDetails";
 import "./index.css";
 
 import { useContext } from "react";
@@ -22,6 +23,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/jobs" element={<JobPage />} />
+        <Route path="/job-details/:id" element={<JobDetailsPage />} />
         <Route path="/createjob" element={<CreateJob />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
