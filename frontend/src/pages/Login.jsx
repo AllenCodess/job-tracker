@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router";
 import { UserContext, UserProvider } from "../context/UserContext";
 
 const LoginPage = () => {
@@ -33,6 +34,9 @@ const LoginPage = () => {
             <button type="button" className="login-btn" onClick={login}>
               Login
             </button>
+            <p>
+              Dont have an account? <Link to="/signup">Create One</Link>
+            </p>
           </form>
         </div>
       </div>

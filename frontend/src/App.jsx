@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router";
 import HomePage from "./pages/Home";
 import LoginPage from "./pages/Login";
+import Signup from "./pages/Signup";
 import JobPage from "./pages/Job";
 import NotFound from "./pages/NotFound";
 import CreateJob from "./pages/CreateJob";
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/jobs" element={<JobPage />} />
         <Route path="/createjob" element={<CreateJob />} />
         <Route path="/*" element={<NotFound />} />
