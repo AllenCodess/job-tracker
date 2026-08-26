@@ -13,11 +13,11 @@ const HomePage = () => {
       <div className="container">
         <div className="hero-section-container">
           <div className="hero-left">
-            <h1 className="hero-text-header">Track you applications. Land your dream job.</h1>
+            <h1 className="hero-text-header">Track your applications. Land your dream job.</h1>
 
             <p className="hero-text-description">
-              Job Tracker helps users organize job applications, monitor prgress and stay consistent
-              on the path to get hired.
+              Job Tracker helps users organize job applications, monitor progress and stay
+              consistent on the path to get hired.
             </p>
             <button className="hero-btn" onClick={handleButtonClick}>
               Login to get started.

@@ -29,7 +29,7 @@ const Navbar = () => {
             </li>
             {/* if user is true display logout else display login */}
             <li className="navbar-item">
-              {user ? (
+              {user?.name ? (
                 <button
                   className="logout-btn"
                   onClick={() => {
@@ -37,7 +37,7 @@ const Navbar = () => {
                     setIsOpen(false);
                   }}
                 >
-                  Logout {user}
+                  Logout {user?.name}
                 </button>
               ) : (
                 <Link to="/login" className="link-text" onClick={() => setIsOpen(false)}>
