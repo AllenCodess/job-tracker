@@ -79,3 +79,13 @@ export const updateJob = async (req, res) => {
     res.status(400).json({ status: "fail", message: error.message });
   }
 };
+
+export const deleteJob = async (req, res) => {
+  try {
+    const job = await Job.findByIdAndDelete(req.params.id);
+
+    res.status(200).json({ status: `${job.position} job successfully deleted` });
+  } catch (error) {
+    res.status(400).json({ status: "fail", message: error.message });
+  }
+};
