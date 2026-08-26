@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { UserContext, UserProvider } from "../context/UserContext";
 
 const LoginPage = () => {
-  const { username, setUsername, password, setPassword, login } = useContext(UserContext);
+  const { email, setEmail, password, setPassword, login } = useContext(UserContext);
   return (
     <>
       <div className="container">
@@ -19,8 +19,8 @@ const LoginPage = () => {
               type="text"
               placeholder="Enter Email"
               className="email-input"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <label>Password</label>
             <input
