@@ -34,8 +34,11 @@ const LoginPage = () => {
             <button type="button" className="login-btn" onClick={login}>
               Login
             </button>
-            <p>
-              Dont have an account? <Link to="/signup">Create One</Link>
+            <p className="create-account-text">
+              Dont have an account?
+              <Link className="signuplink" to="/signup">
+                Create One
+              </Link>
             </p>
           </form>
         </div>

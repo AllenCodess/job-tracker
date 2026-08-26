@@ -5,8 +5,10 @@ export const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   // these are the states for the input values
   const [user, setUser] = useState(null);
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
 
   const login = async () => {
     try {
@@ -24,6 +26,21 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+  const signup = async () => {
+    try {
+      const res = await fetch("/api/v1/users/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, password, passwordConfirm }),
+        credentials: "include", // sends cookie
+      });
+      const data = await res.json();
+      setUser(data);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   const logout = () => {
     setUser(null);
     setEmail("");
@@ -33,7 +50,21 @@ export const UserProvider = ({ children }) => {
   return (
     <>
       <UserContext.Provider
-        value={{ email, setEmail, password, setPassword, user, setUser, login, logout }}
+        value={{
+          name,
+          setName,
+          email,
+          setEmail,
+          password,
+          setPassword,
+          passwordConfirm,
+          setPasswordConfirm,
+          user,
+          setUser,
+          login,
+          logout,
+          signup,
+        }}
       >
         {children}
       </UserContext.Provider>

@@ -196,6 +196,15 @@
   margin-bottom: 1rem;
 }
 
+.create-account-text {
+  font-size: 12px;
+}
+
+.signuplink {
+  text-decoration: none;
+  margin-left: 0.2rem;
+}
+
 /* Jobs Page */
 
 .jobs-header {
