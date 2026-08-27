@@ -523,4 +523,19 @@
   .right-side {
     column-gap: 3rem;
   }
+
+  .jd-container {
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .jd-description-text {
+    width: 90%;
+    margin-bottom: 1rem;
+  }
+
+  .jd-btns {
+    margin-bottom: 3rem;
+  }
 }
