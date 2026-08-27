@@ -357,21 +357,81 @@
 
 .jd-container {
   display: flex;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 .jd-left-container {
-  border: 1px solid black;
   flex: 2;
 }
 
-.jd-right-container {
+.jd-header {
+  margin-bottom: 2rem;
+}
+
+.jd-header-list {
+  display: flex;
+}
+
+.jd-header-list-item {
+  padding: 0.4rem;
+  list-style-type: none;
+}
+
+.jd-description-text {
+  width: 60%;
+  margin-top: 1rem;
+  line-height: 25px;
+  margin-bottom: 4rem;
+}
+
+.jd-btn {
+  padding: 8px 10px;
+  margin-right: 22px;
+  border-radius: 4px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.vjp {
+  background-color: blue;
+  color: white;
+  border: 1px solid blue;
+}
+
+.ej {
+  background-color: green;
+  color: white;
+  border: 1px solid green;
+}
+
+.dj {
+  background-color: white;
+  color: red;
   border: 1px solid red;
+}
+
+.jd-right-container {
   flex: 1;
+}
+
+.jd-app-overview-header {
+  margin-bottom: 1rem;
 }
 
 .app-overview-jd {
   display: flex;
   justify-content: space-between;
-  list-style-type: none;
+}
+
+.app-overview-jd-item {
+  padding-bottom: 1rem;
+  list-style: none;
+}
+
+.jd-notes {
+  margin-top: 2rem;
+}
+
+.gray {
+  color: gray;
 }
 
 /* Media Query 768px */
