@@ -1,9 +1,16 @@
 import { useContext } from "react";
-import { Link } from "react-router";
-import { UserContext, UserProvider } from "../context/UserContext";
+import { Link, useNavigate } from "react-router";
+import { UserContext } from "../context/UserContext";
 
 const LoginPage = () => {
+  let navigate = useNavigate();
   const { email, setEmail, password, setPassword, login } = useContext(UserContext);
+
+  const handleLoginClick = () => {
+    setEmail("");
+    setPassword("");
+    navigate("/jobs");
+  };
   return (
     <>
       <div className="container">
@@ -31,7 +38,14 @@ const LoginPage = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="button" className="login-btn" onClick={login}>
+            <button
+              type="button"
+              className="login-btn"
+              onClick={() => {
+                login();
+                handleLoginClick();
+              }}
+            >
               Login
             </button>
             <p className="create-account-text">

@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { jobs } from "../data/data";
 import { useNavigate } from "react-router";
 import { Link } from "react-router";
 import { useState, useEffect } from "react";

@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { Link } from "react-router";
 import { UserContext } from "../context/UserContext";
+import { useNavigate } from "react-router";
 
 const Signup = () => {
+  let navigate = useNavigate();
   const {
     name,
     setName,
@@ -14,6 +16,14 @@ const Signup = () => {
     setPasswordConfirm,
     signup,
   } = useContext(UserContext);
+
+  const handleLoginClick = () => {
+    setName("");
+    setEmail("");
+    setPassword("");
+    setPasswordConfirm("");
+    navigate("/jobs");
+  };
   return (
     <>
       <div className="container">
@@ -55,7 +65,14 @@ const Signup = () => {
               value={passwordConfirm}
               onChange={(e) => setPasswordConfirm(e.target.value)}
             />
-            <button type="button" className="login-btn" onClick={signup}>
+            <button
+              type="button"
+              className="login-btn"
+              onClick={() => {
+                signup();
+                handleLoginClick();
+              }}
+            >
               Create Account
             </button>
             <p className="create-account-text">
