@@ -3,8 +3,11 @@ import { createContext, useState } from "react";
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
+  const [user, setUser] = useState(() => {
+    const saved = localStorage.getItem("user");
+    return saved ? JSON.parse(saved) : null;
+  });
   // these are the states for the input values
-  const [user, setUser] = useState(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,6 +23,7 @@ export const UserProvider = ({ children }) => {
       });
       const data = await res.json();
       setUser(data);
+      localStorage.setItem("user", JSON.stringify(data));
       console.log(data);
     } catch (error) {
       console.error(error.message);
@@ -37,6 +41,7 @@ export const UserProvider = ({ children }) => {
       const data = await res.json();
       console.log(data);
       setUser(data.data.user);
+      localStorage.setItem("user", JSON.stringify(data.data.user));
     } catch (error) {
       console.error(error.message);
     }
@@ -46,6 +51,7 @@ export const UserProvider = ({ children }) => {
     setUser(null);
     setEmail("");
     setPassword("");
+    localStorage.removeItem("user");
   };
 
   return (
