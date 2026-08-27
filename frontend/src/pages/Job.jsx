@@ -9,6 +9,21 @@ const JobPage = () => {
   const addJobBtn = () => {
     navigate("/createjob");
   };
+
+  const getJobDetails = async () => {
+    try {
+      const details = await fetch("/api/v1/jobs/myjobs", {
+        method: "GET",
+        credentials: "include",
+      });
+      const data = await details.json();
+      console.log(data);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  getJobDetails();
   return (
     <>
       <div className="jobs-header container">
