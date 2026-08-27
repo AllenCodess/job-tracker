@@ -59,7 +59,7 @@ const JobPage = () => {
                 <p className="job-position-details">{job.status}</p>
                 <p className="job-position-details">{job.date}</p>
                 <button className="job-details-btn">
-                  <Link className="job-details-btn-link" to={"/job-details/:id"}>
+                  <Link className="job-details-btn-link" to={`/job-details/${job._id}`}>
                     Details
                   </Link>
                 </button>

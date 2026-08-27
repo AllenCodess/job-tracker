@@ -1,34 +1,52 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faBriefcase, faBuilding } from "@fortawesome/free-solid-svg-icons";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router";
 
 const JobDetailsPage = () => {
+  const [data, setData] = useState([]);
+  const { id } = useParams();
+
+  useEffect(() => {
+    const getJobDetail = async () => {
+      try {
+        const detail = await fetch(`/api/v1/jobs/${id}`, {
+          method: "GET",
+          credentials: "include",
+        });
+        const data = await detail.json();
+        setData(data.data);
+        console.log(data.data);
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
+
+    getJobDetail();
+  }, []);
   return (
     <>
       <div className="container jd-container">
         <div className="jd-left-container">
           <div className="jd-header">
-            <h2>Junior Software Engineer</h2>
+            <h2>{data.position}</h2>
             <ul className="jd-header-list">
               <li className="jd-header-list-item">
-                <FontAwesomeIcon icon={faBuilding} className="gray" /> Google
+                <FontAwesomeIcon icon={faBuilding} className="gray" /> {data.company}
               </li>
               <li className="jd-header-list-item">
                 <FontAwesomeIcon icon={faLocationDot} className="gray" />
-                Virginia
+                {data.location}
               </li>
               <li className="jd-header-list-item">
                 <FontAwesomeIcon icon={faBriefcase} className="gray" />
-                Full-Time
+                {data.workType}
               </li>
             </ul>
           </div>
           <div className="jd-description">
             <h4>Job Description</h4>
-            <p className="jd-description-text">
-              As a junior Software Engineer, you will work with a talented team to design, build and
-              maintain scalable software solutions. You will collaborate with cross-functional teams
-              and contribute to products used by millions of users around the world.
-            </p>
+            <p className="jd-description-text">{data.description}</p>
           </div>
           <div className="jd-btns">
             <button className="jd-btn vjp">View Job Posting</button>
@@ -51,11 +69,11 @@ const JobDetailsPage = () => {
               </div>
               <div className="app-overview-jd-right">
                 <ul>
-                  <li className="app-overview-jd-item">Applied</li>
-                  <li className="app-overview-jd-item">June 3, 2026</li>
-                  <li className="app-overview-jd-item">Full-Time</li>
-                  <li className="app-overview-jd-item">Virginia</li>
-                  <li className="app-overview-jd-item">Google</li>
+                  <li className="app-overview-jd-item">{data.status}</li>
+                  <li className="app-overview-jd-item">{data.date}</li>
+                  <li className="app-overview-jd-item">{data.workType}</li>
+                  <li className="app-overview-jd-item">{data.location}</li>
+                  <li className="app-overview-jd-item">{data.company}</li>
                 </ul>
               </div>
             </div>
