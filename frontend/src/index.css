@@ -357,6 +357,7 @@
 
 .jd-container {
   display: flex;
+  width: 60%;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 .jd-left-container {
