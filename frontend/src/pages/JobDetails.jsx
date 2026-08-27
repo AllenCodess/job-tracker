@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 
 const JobDetailsPage = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
@@ -24,6 +24,7 @@ const JobDetailsPage = () => {
 
     getJobDetail();
   }, []);
+  if (!data) return <p>Loading...</p>;
   return (
     <>
       <div className="container jd-container">
@@ -46,7 +47,9 @@ const JobDetailsPage = () => {
           </div>
           <div className="jd-description">
             <h4>Job Description</h4>
-            <p className="jd-description-text">{data.description}</p>
+            <p className="jd-description-text">
+              {data.description || " No description added yet."}
+            </p>
           </div>
           <div className="jd-btns">
             <button className="jd-btn vjp">View Job Posting</button>
@@ -80,7 +83,7 @@ const JobDetailsPage = () => {
           </div>
           <div className="jd-notes">
             <h4>Notes</h4>
-            <p>No notes added yet.</p>
+            <p> {data.notes || "No notes added yet."} </p>
           </div>
         </div>
       </div>

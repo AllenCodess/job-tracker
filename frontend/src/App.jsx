@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar";
-import { Routes, Route } from "react-router";
+import { Routes, Route, Navigate } from "react-router";
 import HomePage from "./pages/Home";
 import LoginPage from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -19,9 +19,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/jobs" element={<JobPage />} />
+        <Route path="/login" element={user ? <Navigate to="/jobs" /> : <LoginPage />} />
+        <Route path="/signup" element={user ? <Navigate to="/jobs" /> : <Signup />} />
+        <Route path="/jobs" element={user ? <JobPage /> : <Navigate to="/login" />} />
         <Route path="/job-details/:id" element={<JobDetailsPage />} />
         <Route path="/createjob" element={<CreateJob />} />
         <Route path="/*" element={<NotFound />} />

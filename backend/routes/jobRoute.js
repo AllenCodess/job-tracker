@@ -11,7 +11,7 @@ import {
 
 const router = express.Router();
 
-router.get("/", findJobs);
+router.get("/", protect, findJobs);
 router.post("/createjob", protect, createJob);
 router.get("/myjobs", protect, findMyJobs);
 router.get("/:id", protect, findMyJob);
