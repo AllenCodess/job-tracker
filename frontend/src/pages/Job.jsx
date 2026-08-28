@@ -56,7 +56,13 @@ const JobPage = () => {
               </div>
               <div className="right-side">
                 <p className="job-position-details">{job.status}</p>
-                <p className="job-position-details">{job.date}</p>
+                <p className="job-position-details">
+                  {new Date(job.date).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </p>
                 <button className="job-details-btn">
                   <Link className="job-details-btn-link" to={`/job-details/${job._id}`}>
                     Details

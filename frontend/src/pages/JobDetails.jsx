@@ -16,7 +16,6 @@ const JobDetailsPage = () => {
         });
         const data = await detail.json();
         setData(data.data);
-        console.log(data.data);
       } catch (error) {
         console.error(error.message);
       }
@@ -73,7 +72,13 @@ const JobDetailsPage = () => {
               <div className="app-overview-jd-right">
                 <ul>
                   <li className="app-overview-jd-item">{data.status}</li>
-                  <li className="app-overview-jd-item">{data.date}</li>
+                  <li className="app-overview-jd-item">
+                    {new Date(data.date).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </li>
                   <li className="app-overview-jd-item">{data.workType}</li>
                   <li className="app-overview-jd-item">{data.location}</li>
                   <li className="app-overview-jd-item">{data.company}</li>

@@ -22,6 +22,11 @@ export const UserProvider = ({ children }) => {
         credentials: "include", // sends cookie
       });
       const data = await res.json();
+
+      if (!res.ok) {
+        console.error(data.message);
+        return;
+      }
       setUser(data);
       localStorage.setItem("user", JSON.stringify(data));
     } catch (error) {
