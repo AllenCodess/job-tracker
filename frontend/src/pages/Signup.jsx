@@ -68,8 +68,8 @@ const Signup = () => {
             <button
               type="button"
               className="login-btn"
-              onClick={() => {
-                signup();
+              onClick={async () => {
+                await signup();
                 handleLoginClick();
               }}
             >

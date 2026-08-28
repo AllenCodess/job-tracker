@@ -44,6 +44,11 @@ export const UserProvider = ({ children }) => {
       });
       const data = await res.json();
 
+      if (!res.ok) {
+        console.error(data.message);
+        return;
+      }
+
       setUser(data.data.user);
       localStorage.setItem("user", JSON.stringify(data.data.user));
     } catch (error) {
