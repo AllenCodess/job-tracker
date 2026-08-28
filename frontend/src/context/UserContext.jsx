@@ -24,7 +24,6 @@ export const UserProvider = ({ children }) => {
       const data = await res.json();
       setUser(data);
       localStorage.setItem("user", JSON.stringify(data));
-      console.log(data);
     } catch (error) {
       console.error(error.message);
     }
@@ -39,7 +38,7 @@ export const UserProvider = ({ children }) => {
         credentials: "include", // sends cookie
       });
       const data = await res.json();
-      console.log(data);
+
       setUser(data.data.user);
       localStorage.setItem("user", JSON.stringify(data.data.user));
     } catch (error) {
@@ -52,6 +51,26 @@ export const UserProvider = ({ children }) => {
     setEmail("");
     setPassword("");
     localStorage.removeItem("user");
+  };
+
+  const createJob = async (jobData) => {
+    try {
+      const res = await fetch("/api/v1/jobs/createjob", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(jobData),
+        credentials: "include",
+      });
+      const data = await res.json();
+      console.log(data);
+
+      if (!res.ok) {
+        console.error(data.message);
+        return;
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   return (
@@ -71,6 +90,7 @@ export const UserProvider = ({ children }) => {
           login,
           logout,
           signup,
+          createJob,
         }}
       >
         {children}

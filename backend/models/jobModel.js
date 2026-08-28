@@ -25,10 +25,10 @@ const jobSchema = new mongoose.Schema({
   notes: {
     type: String,
   },
-  description: {
+  workType: {
     type: String,
   },
-  workType: {
+  jobLink: {
     type: String,
   },
   user: {

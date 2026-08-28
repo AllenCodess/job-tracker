@@ -1,24 +1,34 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { UserContext } from "../context/UserContext";
+import { useNavigate } from "react-router";
 
 const CreateJob = () => {
-  const [selected, setSelected] = useState("");
+  let navigate = useNavigate();
+  const [status, setStatus] = useState("");
   const [company, setCompany] = useState("");
   const [position, setPosition] = useState("");
   const [location, setLocation] = useState("");
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [jobLink, setJobLink] = useState("");
+  const [workType, setWorkType] = useState("");
+  const [date, setDate] = useState(null);
   const [notes, setNotes] = useState("");
 
-  const handleSubmit = (e) => {
+  const { createJob } = useContext(UserContext);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({ company, position, location, selectedDate, selected, notes });
-    setSelected("");
+    await createJob({ status, company, position, location, jobLink, workType, date, notes });
+    setStatus("");
     setCompany("");
     setPosition("");
     setLocation("");
-    setSelectedDate(null);
+    setDate(null);
     setNotes("");
+    setJobLink("");
+    setWorkType("");
+    navigate("/jobs");
   };
 
   return (
@@ -46,17 +56,31 @@ const CreateJob = () => {
               value={position}
               onChange={(e) => setPosition(e.target.value)}
             />
+            <label className="create-job-label">Job Link</label>
+            <input
+              className="details-label"
+              type="text"
+              placeholder="e.g https://www.linkedin.com/developers"
+              value={jobLink}
+              onChange={(e) => setJobLink(e.target.value)}
+            />
             <label className="create-job-label">Status</label>
-            <select
-              className="dropdown"
-              value={selected}
-              onChange={(e) => setSelected(e.target.value)}
-            >
+            <select className="dropdown" value={status} onChange={(e) => setStatus(e.target.value)}>
               <option>Select</option>
               <option value="Applied">Applied</option>
               <option value="Rejected">Rejected</option>
               <option value="Pending">Pending</option>
               <option value="Interview">Interview</option>
+            </select>
+            <label className=" create-job-label worktype-label">Work-Type</label>
+            <select
+              className="dropdown"
+              value={workType}
+              onChange={(e) => setWorkType(e.target.value)}
+            >
+              <option>Select</option>
+              <option value="Full-Time">Full-Time</option>
+              <option value="Part-Time">Part-Time</option>
             </select>
           </div>
           <div className="create-right">
@@ -71,8 +95,8 @@ const CreateJob = () => {
             <div className="calendar">
               <p className="create-job-label">Select a date:</p>
               <DatePicker
-                selected={selectedDate}
-                onChange={(date) => setSelectedDate(date)}
+                selected={date}
+                onChange={(date) => setDate(date)}
                 className="details-label"
               />
             </div>
