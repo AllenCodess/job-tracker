@@ -11,6 +11,7 @@ import "./index.css";
 
 import { useContext } from "react";
 import { UserContext } from "./context/UserContext";
+import EditJob from "./pages/EditJob";
 
 function App() {
   const { user } = useContext(UserContext);
@@ -27,6 +28,7 @@ function App() {
           element={user ? <JobDetailsPage /> : <Navigate to="/login" />}
         />
         <Route path="/createjob" element={user ? <CreateJob /> : <Navigate to="/login" />} />
+        <Route path="/editjob/:id" element={user ? <EditJob /> : <Navigate to="/login" />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
     </>

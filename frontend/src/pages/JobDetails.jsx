@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faBriefcase, faBuilding } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import { Link } from "react-router";
 
 const JobDetailsPage = () => {
   const [data, setData] = useState(null);
@@ -57,7 +58,9 @@ const JobDetailsPage = () => {
                 View Job Posting
               </a>
             </button>
-            <button className="jd-btn ej">Edit Job</button>
+            <button className="jd-btn ej">
+              <Link to={`/editjob/${data._id}`}> Edit Job</Link>
+            </button>
             <button className="jd-btn dj">Delete Job</button>
           </div>
         </div>

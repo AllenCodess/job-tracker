@@ -77,8 +77,16 @@ export const findMyJob = async (req, res) => {
 
 export const updateJob = async (req, res) => {
   try {
-    const job = await Job.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    res.status(201).json({ status: "success", data: job });
+    const job = await Job.findOneAndUpdate({ _id: req.params.id, user: req.user.id }, req.body, {
+      new: true,
+      runValidators: true,
+    });
+
+    if (!job) {
+      return res.status(403).json({ status: "fail", message: "Not authorized" });
+    }
+
+    res.status(200).json({ status: "success", data: job });
   } catch (error) {
     res.status(400).json({ status: "fail", message: error.message });
   }
@@ -86,9 +94,15 @@ export const updateJob = async (req, res) => {
 
 export const deleteJob = async (req, res) => {
   try {
-    const job = await Job.findByIdAndDelete(req.params.id);
+    const job = await Job.findOneAndDelete({ _id: req.params.id, user: req.user.id });
 
-    res.status(200).json({ status: `${job.position} job successfully deleted` });
+    if (!job) {
+      return res.status(403).json({ status: "fail", message: "Not authorized" });
+    }
+
+    await User.findByIdAndUpdate(req.user.id, { $pull: { jobs: job._id } });
+
+    res.status(200).json({ status: "success", message: `${job.position} deleted` });
   } catch (error) {
     res.status(400).json({ status: "fail", message: error.message });
   }
