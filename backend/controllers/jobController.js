@@ -5,7 +5,8 @@ import User from "../models/userModel.js";
 
 export const createJob = async (req, res) => {
   try {
-    const { position, company, location, status, date, notes, workType, description } = req.body;
+    const { position, company, location, status, date, notes, workType, description, jobLink } =
+      req.body;
     const userId = req.user.id; // from your auth middleware (this checks the id via the cookie/jwt payload)
 
     const newJob = await Job.create({
@@ -17,6 +18,7 @@ export const createJob = async (req, res) => {
       notes,
       workType,
       description,
+      jobLink,
       user: userId,
     });
 

@@ -24,6 +24,7 @@ const JobDetailsPage = () => {
     getJobDetail();
   }, []);
   if (!data) return <p>Loading...</p>;
+
   return (
     <>
       <div className="container jd-container">
@@ -51,7 +52,11 @@ const JobDetailsPage = () => {
             </p>
           </div>
           <div className="jd-btns">
-            <button className="jd-btn vjp">View Job Posting</button>
+            <button className="jd-btn vjp">
+              <a className="jd-btn-link" href={data.jobLink} target="_blank">
+                View Job Posting
+              </a>
+            </button>
             <button className="jd-btn ej">Edit Job</button>
             <button className="jd-btn dj">Delete Job</button>
           </div>
