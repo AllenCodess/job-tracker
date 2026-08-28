@@ -83,6 +83,27 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+  const editJob = async (id, jobData) => {
+    try {
+      const res = await fetch(`/api/v1/jobs/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(jobData),
+        credentials: "include",
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        console.error(data.message);
+        return;
+      }
+
+      return data.data;
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   return (
     <>
       <UserContext.Provider
@@ -101,6 +122,7 @@ export const UserProvider = ({ children }) => {
           logout,
           signup,
           createJob,
+          editJob,
         }}
       >
         {children}
