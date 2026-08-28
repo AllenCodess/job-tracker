@@ -14,12 +14,23 @@ const CreateJob = () => {
   const [workType, setWorkType] = useState("");
   const [date, setDate] = useState(null);
   const [notes, setNotes] = useState("");
+  const [description, setDescription] = useState("");
 
   const { createJob } = useContext(UserContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await createJob({ status, company, position, location, jobLink, workType, date, notes });
+    await createJob({
+      status,
+      company,
+      position,
+      location,
+      jobLink,
+      workType,
+      date,
+      notes,
+      description,
+    });
     setStatus("");
     setCompany("");
     setPosition("");
@@ -28,6 +39,7 @@ const CreateJob = () => {
     setNotes("");
     setJobLink("");
     setWorkType("");
+    setDescription("");
     navigate("/jobs");
   };
 
@@ -82,6 +94,13 @@ const CreateJob = () => {
               <option value="Full-Time">Full-Time</option>
               <option value="Part-Time">Part-Time</option>
             </select>
+            <label className="create-job-label jd-label">Job Description</label>
+            <textarea
+              placeholder="Optional Job Descirption"
+              className="create-job-notes"
+              onChange={(e) => setDescription(e.target.value)}
+              value={description}
+            ></textarea>
           </div>
           <div className="create-right">
             <label className="create-job-label">Location</label>

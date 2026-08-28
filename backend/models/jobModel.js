@@ -31,6 +31,9 @@ const jobSchema = new mongoose.Schema({
   jobLink: {
     type: String,
   },
+  description: {
+    type: String,
+  },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
