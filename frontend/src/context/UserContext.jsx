@@ -12,8 +12,10 @@ export const UserProvider = ({ children }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [error, setError] = useState("");
 
   const login = async () => {
+    setError("");
     try {
       const res = await fetch("/api/v1/users/login", {
         method: "POST",
@@ -24,13 +26,15 @@ export const UserProvider = ({ children }) => {
       const data = await res.json();
 
       if (!res.ok) {
-        console.error(data.message);
-        return;
+        setError(data.message);
+        return false;
       }
       setUser(data);
       localStorage.setItem("user", JSON.stringify(data));
+      return true;
     } catch (error) {
-      console.error(error.message);
+      setError("Something went wrong. Try again."); // was console.error
+      return false;
     }
   };
 
@@ -104,6 +108,23 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+  const deleteJob = async (id) => {
+    try {
+      const res = await fetch(`/api/v1/jobs/${id}`, {
+        method: "DELETE",
+        credentials: "include",
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        console.error(data.message);
+        return;
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   return (
     <>
       <UserContext.Provider
@@ -123,6 +144,9 @@ export const UserProvider = ({ children }) => {
           signup,
           createJob,
           editJob,
+          deleteJob,
+          error,
+          setError,
         }}
       >
         {children}

@@ -4,7 +4,7 @@ import { UserContext } from "../context/UserContext";
 
 const LoginPage = () => {
   let navigate = useNavigate();
-  const { email, setEmail, password, setPassword, login } = useContext(UserContext);
+  const { email, setEmail, password, setPassword, login, error } = useContext(UserContext);
 
   const handleLoginClick = () => {
     setEmail("");
@@ -22,6 +22,7 @@ const LoginPage = () => {
             </p>
           </div>
           <form className="login-inputs">
+            {error && <p className="error-text">{error}</p>}
             <label>Email address</label>
             <input
               type="text"
@@ -41,13 +42,14 @@ const LoginPage = () => {
             <button
               type="button"
               className="login-btn"
-              onClick={() => {
-                login();
+              onClick={async () => {
+                await login();
                 handleLoginClick();
               }}
             >
               Login
             </button>
+
             <p className="create-account-text">
               Dont have an account?
               <Link className="signuplink" to="/signup">

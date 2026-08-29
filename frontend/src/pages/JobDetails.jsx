@@ -2,11 +2,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faBriefcase, faBuilding } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
 
 const JobDetailsPage = () => {
   const [data, setData] = useState(null);
   const { id } = useParams();
+  const { deleteJob } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const handleDelete = async () => {
+    await deleteJob(id);
+    navigate("/jobs");
+  };
 
   useEffect(() => {
     const getJobDetail = async () => {
@@ -63,7 +72,9 @@ const JobDetailsPage = () => {
                 Edit Job
               </Link>
             </button>
-            <button className="jd-btn dj">Delete Job</button>
+            <button className="jd-btn dj" onClick={handleDelete}>
+              Delete Job
+            </button>
           </div>
         </div>
         <div className="jd-right-container">
