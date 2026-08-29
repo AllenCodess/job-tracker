@@ -15,6 +15,7 @@ const Signup = () => {
     passwordConfirm,
     setPasswordConfirm,
     signup,
+    error,
   } = useContext(UserContext);
 
   const handleLoginClick = () => {
@@ -30,6 +31,7 @@ const Signup = () => {
         <div className="login-form">
           <div className="login-header">
             <h1>Create Account</h1>
+            {error && <p className="error-text">{error}</p>}
             <p className="login-description">Welcome! Please enter your details to continue.</p>
           </div>
           <form className="login-inputs">
@@ -69,8 +71,8 @@ const Signup = () => {
               type="button"
               className="login-btn"
               onClick={async () => {
-                await signup();
-                handleLoginClick();
+                const success = await signup();
+                if (success) handleLoginClick();
               }}
             >
               Create Account

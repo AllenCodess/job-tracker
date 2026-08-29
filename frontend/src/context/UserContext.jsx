@@ -33,7 +33,7 @@ export const UserProvider = ({ children }) => {
       localStorage.setItem("user", JSON.stringify(data));
       return true;
     } catch (error) {
-      setError("Something went wrong. Try again."); // was console.error
+      setError("Something went wrong. Try again.");
       return false;
     }
   };
@@ -49,14 +49,16 @@ export const UserProvider = ({ children }) => {
       const data = await res.json();
 
       if (!res.ok) {
-        console.error(data.message);
-        return;
+        setError(data.message);
+        return false;
       }
 
       setUser(data.data.user);
       localStorage.setItem("user", JSON.stringify(data.data.user));
+      return true;
     } catch (error) {
-      console.error(error.message);
+      setError("Something went wrong. Try again.");
+      return false;
     }
   };
 
