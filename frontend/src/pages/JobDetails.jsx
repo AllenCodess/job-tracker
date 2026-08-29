@@ -59,7 +59,9 @@ const JobDetailsPage = () => {
               </a>
             </button>
             <button className="jd-btn ej">
-              <Link to={`/editjob/${data._id}`}> Edit Job</Link>
+              <Link to={`/editjob/${data._id}`} className="jd-btn-ej">
+                Edit Job
+              </Link>
             </button>
             <button className="jd-btn dj">Delete Job</button>
           </div>
