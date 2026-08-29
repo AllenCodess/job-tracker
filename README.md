@@ -6,7 +6,7 @@
 
 ## Screenshot
 
-![Screenshot](frontend/public/images/githubpic.png)
+![Screenshot](frontend/public/githubpic.png)
 
 ## Overview
 
