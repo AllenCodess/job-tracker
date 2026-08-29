@@ -1,16 +1,38 @@
-# React + Vite
+# Job Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Status:** Live
 
-Currently, two official plugins are available:
+[Website](domain not created yet)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Screenshot
 
-## React Compiler
+![Screenshot](frontend/public/images/githubpic.png)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Overview
 
-## Expanding the ESLint configuration
+A full-stack MERN application for tracking job applications. Users create an account, add jobs they've applied to, and manage them through the full lifecycle — recording company, position, location, status, work type, application date, job posting link, and personal notes. Every job is scoped to the user who created it: each route verifies ownership before returning or modifying data, so a user can only ever see and change their own applications. Built with JWT authentication over HTTP-only cookies, React Context for global auth state, and a custom CSS design system.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+
+- User registration and login with JWT authentication (HTTP-only cookies)
+- Session persistence across page refreshes
+- Create, view, edit, and delete job applications
+- Per-user data isolation — every job route verifies ownership before responding
+- Individual job detail pages with full application overview
+- Protected routes on both client and server
+- Form validation with user-facing error messages
+- Empty state for new users with no applications
+- Date picker for application dates
+- Responsive design for mobile and desktop
+
+## Technologies Used
+
+- React
+- React Router
+- React Context API
+- Node.js / Express
+- MongoDB / Mongoose
+- JWT authentication
+- bcrypt (password hashing)
+- CSS
+- Vite
