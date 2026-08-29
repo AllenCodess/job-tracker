@@ -19,6 +19,7 @@ const JobPage = () => {
           credentials: "include",
         });
         const data = await details.json();
+
         setData(data.data);
       } catch (error) {
         console.error(error.message);
@@ -44,33 +45,37 @@ const JobPage = () => {
       </div>
       <div className="job-section container">
         <div>
-          {data.map((job) => (
-            <div className="single-job" key={job._id}>
-              <div className="left-side">
-                <p className="job-position-title">{job.position}</p>
-                <div className="job-position-details-container">
-                  <p className="job-position-details">{job.company}</p>
-                  <p className="job-position-details">{job.location}</p>
-                  <p className="job-position-details">{job.workType}</p>
+          {data.length === 0 ? (
+            <p> No jobs yet. Add your first one.</p>
+          ) : (
+            data.map((job) => (
+              <div className="single-job" key={job._id}>
+                <div className="left-side">
+                  <p className="job-position-title">{job.position}</p>
+                  <div className="job-position-details-container">
+                    <p className="job-position-details">{job.company}</p>
+                    <p className="job-position-details">{job.location}</p>
+                    <p className="job-position-details">{job.workType}</p>
+                  </div>
+                </div>
+                <div className="right-side">
+                  <p className="job-position-details">{job.status}</p>
+                  <p className="job-position-details">
+                    {new Date(job.date).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </p>
+                  <button className="job-details-btn">
+                    <Link className="job-details-btn-link" to={`/job-details/${job._id}`}>
+                      Details
+                    </Link>
+                  </button>
                 </div>
               </div>
-              <div className="right-side">
-                <p className="job-position-details">{job.status}</p>
-                <p className="job-position-details">
-                  {new Date(job.date).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </p>
-                <button className="job-details-btn">
-                  <Link className="job-details-btn-link" to={`/job-details/${job._id}`}>
-                    Details
-                  </Link>
-                </button>
-              </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
     </>

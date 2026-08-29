@@ -53,7 +53,7 @@ const Signup = () => {
             />
             <label>Password</label>
             <input
-              type="text"
+              type="password"
               placeholder="Enter Password"
               className="password-input"
               value={password}
@@ -61,7 +61,7 @@ const Signup = () => {
             />
             <label>Confirm Password</label>
             <input
-              type="text"
+              type="password"
               placeholder="Confirm Password"
               className="password-input"
               value={passwordConfirm}

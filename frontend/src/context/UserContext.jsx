@@ -39,6 +39,7 @@ export const UserProvider = ({ children }) => {
   };
 
   const signup = async () => {
+    setError("");
     try {
       const res = await fetch("/api/v1/users/register", {
         method: "POST",
@@ -62,7 +63,12 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-  const logout = () => {
+  const logout = async () => {
+    try {
+      await fetch("/api/v1/users/logout", { method: "POST", credentials: "include" });
+    } catch (err) {
+      console.error(err.message);
+    }
     setUser(null);
     setEmail("");
     setPassword("");

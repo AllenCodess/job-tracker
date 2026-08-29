@@ -503,6 +503,7 @@
     display: grid;
     grid-template-columns: auto auto;
     row-gap: 2rem;
+    margin-left: 2rem;
   }
 
   .login-form {

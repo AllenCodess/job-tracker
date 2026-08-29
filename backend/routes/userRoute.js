@@ -16,9 +16,10 @@ router.post("/register", createUser);
 router.post("/login", authUser);
 router.post("/logout", logoutUser);
 // protected routes
-router.get("/", protect, findUsers);
-router.get("/:id", protect, findUser);
-router.patch("/:id", protect, updateUser);
-router.delete("/:id", protect, deleteUser);
+// I didnt create an admin dashboard to manage users but I wanted to test the api
+// router.get("/", protect, findUsers);
+// router.get("/:id", protect, findUser);
+// router.patch("/:id", protect, updateUser);
+// router.delete("/:id", protect, deleteUser);
 
 export default router;
