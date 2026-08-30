@@ -29,7 +29,7 @@ const HomePage = () => {
           </div>
         </div>
         <div className="second-section">
-          <h2>Everything you need to stay organized</h2>
+          <h2 className="second-header">Everything you need to stay organized</h2>
           <div className="benefits-container">
             <div className="benefit-item">
               <FontAwesomeIcon icon={faTable} className="benefit-icon blue" />

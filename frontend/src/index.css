@@ -125,6 +125,11 @@
   margin-top: 3rem;
 }
 
+.second-header {
+  width: 90%;
+  margin: 0 auto;
+}
+
 .benefits-container {
   display: flex;
   justify-content: center;
