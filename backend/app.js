@@ -4,11 +4,14 @@ import mongoose from "mongoose";
 import userRoute from "./routes/userRoute.js";
 import jobRoute from "./routes/jobRoute.js";
 import cookieParser from "cookie-parser";
+import path from "path";
+import { fileURLToPath } from "url";
 
 dotenv.config({ path: ".env" });
 
 const app = express();
 const DB = process.env.DATABASE;
+const PORT = process.env.PORT || 3000;
 
 //middleware
 app.use(express.json());
@@ -30,6 +33,16 @@ connectDB();
 app.use("/api/v1/users", userRoute);
 app.use("/api/v1/jobs", jobRoute);
 
-app.listen(3000, () => {
+// Serve to frontend
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+app.get("/*splat", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+});
+
+app.listen(PORT, () => {
   console.log("app is running");
 });

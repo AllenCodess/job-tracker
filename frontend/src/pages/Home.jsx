@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTable, faChartLine, faCalendar, faStickyNote } from "@fortawesome/free-solid-svg-icons";
+import heroImage from "../assets/jobtracker-hero.png";
 
 const HomePage = () => {
   let navigate = useNavigate();
@@ -24,11 +25,7 @@ const HomePage = () => {
             </button>
           </div>
           <div className="hero-right">
-            <img
-              className="hero-img"
-              src="./../src/assets/jobtracker-hero.png"
-              alt="preview image of the site"
-            />
+            <img className="hero-img" src={heroImage} alt="preview image of the site" />
           </div>
         </div>
         <div className="second-section">
