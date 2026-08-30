@@ -2,7 +2,7 @@
 
 **Status:** Live
 
-[Website](domain not created yet)
+[Website](https://jobtrackhq.com/)
 
 ## Screenshot
 
@@ -17,6 +17,7 @@ A full-stack MERN application for tracking job applications. Users create an acc
 - User registration and login with JWT authentication (HTTP-only cookies)
 - Session persistence across page refreshes
 - Create, view, edit, and delete job applications
+
 - Individual job detail pages with full application overview
 - Protected routes on both client and server
 - Form validation with user-facing error messages
