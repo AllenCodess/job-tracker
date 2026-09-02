@@ -34,7 +34,8 @@ const JobPage = () => {
       <div className="jobs-header container">
         <div className="job-header-text">
           <h1>My Jobs</h1>
-          <p>Track and manage all your job applications in one place.</p>
+
+          <p> {data.length} jobs found.</p>
         </div>
         <div className="job-header-btn">
           <button className="job-header-button" onClick={addJobBtn}>
